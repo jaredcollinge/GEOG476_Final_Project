@@ -110,4 +110,4 @@ legend.onAdd = function (map) {
 };
 
 
-legend.addTo(map);
+legend.addTo(map2);
