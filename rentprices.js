@@ -16,7 +16,7 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
   const contents = props
-    ? `<b>${props.Name}</b><br />Housing Value: $${props.medianhousingValue}`
+    ? `<b>${props.Name}</b><br />Housing Value: $${props.medianRent}`
     : 'Hover over a state';
   this._div.innerHTML = `<h4>US Housing Value</h4>${contents}`;
 };
@@ -25,14 +25,14 @@ info.addTo(map);
 
 // get color depending on housing value
 function getColor(d) {
-    return d > 600000 ? '#084081' :
-           d > 500000 ? '#0868ac' :
-           d > 400000 ? '#2b8cbe' :
-           d > 300000 ? '#4eb3d3' :
-           d > 200000 ? '#7bccc4' :
-           d > 100000 ? '#a8ddb5' :
-                        '#ccebc5';
-}
+    return d > 1400 ? '#084081' :
+           d > 1200 ? '#0868ac' :
+           d > 1000 ? '#2b8cbe' :
+           d > 800 ? '#4eb3d3' :
+           d > 700 ? '#7bccc4' :
+           d > 600 ? '#a8ddb5' :
+                     '#ccebc5';
+  }
 
 function style(feature) {
     return {
@@ -41,7 +41,7 @@ function style(feature) {
         color: 'white',
         dashArray: '3',
         fillOpacity: 0.7,
-        fillColor: getColor(feature.properties.medianhousingValue)
+        fillColor: getColor(feature.properties.medianRent)
     };
 }
 
@@ -90,7 +90,7 @@ const legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
 
     const div = L.DomUtil.create('div', 'info legend');
-    const grades = [100000, 200000, 300000, 400000, 500000, 600000, 700000];
+    const grades = [600, 700, 800, 1000, 1200, 1400];
     const labels = [];
 
     for (let i = 0; i < grades.length; i++) {
