@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Housing Prices</title>
+
+        <!-- Leaflet Base Information -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
+            
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin="">
+        </script>
+        
+        <!-- Custom HTML formatiing information -->
+        <link rel="stylesheet" type="text/css" href="formatting.css">
+        
+        <!-- Defines how the map looks -->
+        <link rel="stylesheet" type="text/css" href="mapstyle.css">
+
+    </head>
+    <body>
+        <h1>Housing Prices</h1>	
+
+        <!-- Needed to display the map -->
+        <div id='map'></div>
+
+        <!-- Pulls in data -->
+        <script type="text/javascript" src="data/us-states.js"></script> 
+
+        <!-- Creates the map -->
+        <script type="text/javascript" src="housingprices.js"></script>
+    </body>
+</html>
