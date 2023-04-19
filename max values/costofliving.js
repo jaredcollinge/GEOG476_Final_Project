@@ -16,25 +16,25 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
   const contents = props
-    ? `<b>${props.Name}</b><br />Public school score: ${props.publicSchoolScore}`
+    ? `<b>${props.Name}</b><br />Cost of living index: ${props.costlivingIndex}`
     : 'Hover over a state';
-  this._div.innerHTML = `<h4>US Public School Score</h4>${contents}`;
+  this._div.innerHTML = `<h4>US Cost of Living Index</h4>${contents}`;
 };
 
 info.addTo(map);
 
-// get color depending on public school score value
+// get color depending on cost of living index value
 function getColor(d) {
-    return d > 80 ? '#084081' :
-           d > 70 ? '#0868ac' :
-           d > 60 ? '#2b8cbe' :
-           d > 50 ? '#4eb3d3' :
-           d > 40 ? '#7bccc4' :
-           d > 30 ? '#a8ddb5' :
-           d > 20 ? '#ccebc5' :
-                    '#f7fcf0';
+    return d > 130 ? '#084081' :
+           d > 120 ? '#0868ac' :
+           d > 110 ? '#2b8cbe' :
+           d > 100 ? '#4eb3d3' :
+           d > 90 ? '#7bccc4' :
+           d > 80 ? '#a8ddb5' :
+                    '#ccebc5';
   }
   
+
 
   function style(feature) {
     return {
@@ -43,7 +43,7 @@ function getColor(d) {
       color: 'white',
       dashArray: '3',
       fillOpacity: 0.7,
-      fillColor: getColor(feature.properties.publicSchoolScore)
+      fillColor: getColor(feature.properties.costlivingIndex)
     };
   }
 
@@ -85,13 +85,13 @@ function onEachFeature(feature, layer) {
   });
 }
 
-map.attributionControl.addAttribution('Public school score data &copy; <a href="https://worldpopulationreview.com/state-rankings/public-school-rankings-by-state">World Population Review</a>');
+map.attributionControl.addAttribution('Cost of living index data &copy; <a href="https://worldpopulationreview.com/state-rankings/cost-of-living-index-by-state">World Population Review</a>');
 
 const legend = L.control({ position: 'bottomright' });
 
 legend.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'info legend');
-    const grades = [20, 30, 40, 50, 60, 70, 80];
+    const grades = [80, 90, 100, 110, 120, 130];
     const labels = [];
     let from, to;
 
