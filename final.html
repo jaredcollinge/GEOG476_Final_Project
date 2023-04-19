@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <title>Property Selector</title>
+    <!-- Include Leaflet CSS and JS files -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin="">
+        </script>
+
+    <script type="text/javascript" src="gdpPerCapita.js"></script>
+
   </head>
   <body>
     <h1>Property Selector</h1>
@@ -38,38 +50,4 @@
       <option value="costlivingIndex">Cost of Living Index</option>
       <option value="populationDensity">Population Density</option>
     </select>
-
-    <script type="text/javascript" src="data/us-states.js"></script> 
-
-    <script>
-      const selectedProperties = [
-        document.getElementById("property1").value,
-        document.getElementById("property2").value,
-        document.getElementById("property3").value,
-      ];
-    
-      function getAverageValues(selectedProperties) {
-  const stateFeatures = statesData.features;
-  const numStates = stateFeatures.length;
-  const averageValues = {};
-
-  for (let i = 0; i < selectedProperties.length; i++) {
-    const property = selectedProperties[i];
-    let sum = 0;
-    let count = 0;
-    for (let j = 0; j < numStates; j++) {
-      const stateProps = stateFeatures[j].properties;
-      if (stateProps[property] !== null) {
-        sum += stateProps[property];
-        count++;
-      }
-    }
-    averageValues[property] = sum / count;
-  }
-
-  return averageValues;
-}
-    
-      const averages = getAverageValues(selectedProperties);
-      console.log(averages);
-    </script>
+    <br /><br />
