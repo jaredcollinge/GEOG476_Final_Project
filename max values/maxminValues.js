@@ -31,19 +31,3 @@ function getMaxValues() {
   }
   return { maxValues, minValues };
 }
-
-function displayMaxValues() {
-  const { maxValues, minValues } = getMaxValues();
-  for (const [propName, propInfo] of Object.entries(maxValues)) {
-    const maxRow = document.createElement("tr");
-    maxRow.innerHTML = `<td>${propName}</td><td>${propInfo.value}</td><td>${propInfo.state}</td>`;
-    document.getElementById("max-values").appendChild(maxRow);
-  }
-  for (const [propName, propInfo] of Object.entries(minValues)) {
-    const minRow = document.createElement("tr");
-    minRow.innerHTML = `<td>${propName}</td><td>${propInfo.value}</td><td>${propInfo.state}</td>`;
-    document.getElementById("min-values").appendChild(minRow);
-  }
-}
-
-displayMaxValues();
