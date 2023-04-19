@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Property Selector</title>
+  </head>
+  <body>
+    <h1>Property Selector</h1>
+    <label for="property1">Select Property 1:</label>
+    <select id="property1">
+      <option value="publicSchoolScore">Public School Score</option>
+      <option value="jobgrowthRate">Job Growth Rate</option>
+      <option value="medianRent">Median Rent</option>
+      <option value="medianhousingValue">Median Housing Value</option>
+      <option value="gdpPerCapita">GDP Per Capita</option>
+      <option value="costlivingIndex">Cost of Living Index</option>
+      <option value="populationDensity">Population Density</option>
+    </select>
+    <br /><br />
+    <label for="property2">Select Property 2:</label>
+    <select id="property2">
+      <option value="publicSchoolScore">Public School Score</option>
+      <option value="jobgrowthRate">Job Growth Rate</option>
+      <option value="medianRent">Median Rent</option>
+      <option value="medianhousingValue">Median Housing Value</option>
+      <option value="gdpPerCapita">GDP Per Capita</option>
+      <option value="costlivingIndex">Cost of Living Index</option>
+      <option value="populationDensity">Population Density</option>
+    </select>
+    <br /><br />
+    <label for="property3">Select Property 3:</label>
+    <select id="property3">
+      <option value="publicSchoolScore">Public School Score</option>
+      <option value="jobgrowthRate">Job Growth Rate</option>
+      <option value="medianRent">Median Rent</option>
+      <option value="medianhousingValue">Median Housing Value</option>
+      <option value="gdpPerCapita">GDP Per Capita</option>
+      <option value="costlivingIndex">Cost of Living Index</option>
+      <option value="populationDensity">Population Density</option>
+    </select>
+
+    <script type="text/javascript" src="data/us-states.js"></script> 
+
+    <script>
+      const selectedProperties = [
+        document.getElementById("property1").value,
+        document.getElementById("property2").value,
+        document.getElementById("property3").value,
+      ];
+    
+      function getAverageValues(selectedProperties) {
+  const stateFeatures = statesData.features;
+  const numStates = stateFeatures.length;
+  const averageValues = {};
+
+  for (let i = 0; i < selectedProperties.length; i++) {
+    const property = selectedProperties[i];
+    let sum = 0;
+    let count = 0;
+    for (let j = 0; j < numStates; j++) {
+      const stateProps = stateFeatures[j].properties;
+      if (stateProps[property] !== null) {
+        sum += stateProps[property];
+        count++;
+      }
+    }
+    averageValues[property] = sum / count;
+  }
+
+  return averageValues;
+}
+    
+      const averages = getAverageValues(selectedProperties);
+      console.log(averages);
+    </script>
