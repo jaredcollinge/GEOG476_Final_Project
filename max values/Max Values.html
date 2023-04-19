@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+  <script src="data/us-states.js"></script>
+  <script src="maxValues.js"></script>
+</head>
+<body>
+  <h1>Max Values</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody id="max-values-body">
+    </tbody>
+  </table>
+  <script>
+    const maxValues = getMaxValues(statesData);
+    const maxValuesTableBody = document.getElementById("max-values-body");
+    for (const [key, value] of Object.entries(maxValues)) {
+      const row = maxValuesTableBody.insertRow();
+      const propertyCell = row.insertCell();
+      const valueCell = row.insertCell();
+      const stateCell = row.insertCell();
+      propertyCell.textContent = value.name;
+      valueCell.textContent = value.value;
+      stateCell.textContent = value.state;
+    }
+  </script>
+</body>
+</html>
