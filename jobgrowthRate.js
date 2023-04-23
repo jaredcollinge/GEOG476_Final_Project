@@ -1,12 +1,12 @@
-var map = L.map('map3').setView([37.8, -96], 4);
+const map = L.map('map').setView([37.8, -96], 4);
 
-var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
 // control that shows state info on hover
-var info = L.control();
+const info = L.control();
 
 info.onAdd = function (map) {
   this._div = L.DomUtil.create('div', 'info');
@@ -15,11 +15,12 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-  var contents = props
+  const contents = props
     ? `<b>${props.Name}</b><br />Job Growth Rate: ${(props.jobgrowthRate * 100).toFixed(2)}%`
     : 'Hover over a state';
   this._div.innerHTML = `<h4>US Job Growth Rate</h4>${contents}`;
 };
+
 
 info.addTo(map);
 
@@ -33,6 +34,9 @@ function getColor(d) {
                      '#67000d';
 }
 
+
+  
+
   function style(feature) {
     return {
       weight: 2,
@@ -45,7 +49,7 @@ function getColor(d) {
   }
 
 function highlightFeature(e) {
-  var layer = e.target;
+  const layer = e.target;
 
   layer.setStyle({
     weight: 5,
@@ -60,7 +64,7 @@ function highlightFeature(e) {
 }
 
 /* global statesData */
-var geojson = L.geoJson(statesData, {
+const geojson = L.geoJson(statesData, {
   style,
   onEachFeature,
 }).addTo(map);
@@ -84,12 +88,12 @@ function onEachFeature(feature, layer) {
 
 map.attributionControl.addAttribution('Job Growth data &copy; <a href="https://worldpopulationreview.com/state-rankings/job-growth-by-state">World Population Review</a>');
 
-var jobGrowthLegend = L.control({ position: 'bottomright' });
+const jobGrowthLegend = L.control({ position: 'bottomright' });
 
 jobGrowthLegend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend');
-    var grades = [-0.01, -0.0025, 0, 0.005, 0.01];
-    var labels = [];
+    const div = L.DomUtil.create('div', 'info legend');
+    const grades = [-0.01, -0.0025, 0, 0.005, 0.01];
+    const labels = [];
     let from, to;
 
     for (let i = 0; i < grades.length; i++) {
