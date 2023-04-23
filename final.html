@@ -110,6 +110,7 @@
    
     <!-- This code cretes the maps within the continers -->
 
+<<<<<<< HEAD
 
     ////this is to get us basemap
     <script src="us-states.js"></script>
@@ -156,3 +157,26 @@
     maxZoom: 18
   }).addTo(map3);
 </script>
+=======
+    <script>
+      var map1 = L.map('map1').setView([51.505, -0.09], 13);
+      var map2 = L.map('map2').setView([51.505, -0.09], 13);
+      var map3 = L.map('map3').setView([51.505, -0.09], 13);
+     
+     
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map1);
+   
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map2);
+   
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map3);
+    </script>
+>>>>>>> parent of ff27d7d (Update final.html)
