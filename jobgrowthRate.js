@@ -1,4 +1,4 @@
-var map = L.map('map1').setView([37.8, -96], 4);
+var map = L.map('map3').setView([37.8, -96], 4);
 
 var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -16,24 +16,23 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
   var contents = props
-    ? `<b>${props.Name}</b><br />GDP Per Capita: $${Math.round(props.gdpPerCapita).toLocaleString()}`
+    ? `<b>${props.Name}</b><br />Job Growth Rate: ${(props.jobgrowthRate * 100).toFixed(2)}%`
     : 'Hover over a state';
-  this._div.innerHTML = `<h4>US GDP Per Capita</h4>${contents}`;
+  this._div.innerHTML = `<h4>US Job Growth Rate</h4>${contents}`;
 };
 
 info.addTo(map);
 
-// get color depending on cost of living index value
+// get color depending on public school score value
 function getColor(d) {
-  return d > 90000 ? '#084081' :
-         d > 80000 ? '#0868ac' :
-         d > 70000 ? '#2b8cbe' :
-         d > 60000 ? '#4eb3d3' :
-         d > 50000 ? '#7bccc4' :
-         d > 45000 ? '#a8ddb5' :
-                     '#ccebc5';
+  return d > 0.015 ? '#1a9641' :
+         d > 0.01 ? '#a6d96a' :
+         d > 0.005 ? '#ffffbf' :
+         d > 0 ? '#fdae61' :
+         d > -0.005 ? '#d7191c' :
+                     '#67000d';
 }
-  
+
   function style(feature) {
     return {
       weight: 2,
@@ -41,7 +40,7 @@ function getColor(d) {
       color: 'white',
       dashArray: '3',
       fillOpacity: 0.7,
-      fillColor: getColor(feature.properties.gdpPerCapita)
+      fillColor: getColor(feature.properties.jobgrowthRate)
     };
   }
 
@@ -83,13 +82,13 @@ function onEachFeature(feature, layer) {
   });
 }
 
-map.attributionControl.addAttribution('GDP Per Capita data &copy; <a href="https://worldpopulationreview.com/state-rankings/gdp-by-state">World Population Review</a>');
+map.attributionControl.addAttribution('Job Growth data &copy; <a href="https://worldpopulationreview.com/state-rankings/job-growth-by-state">World Population Review</a>');
 
-var legend = L.control({ position: 'bottomright' });
+var jobGrowthLegend = L.control({ position: 'bottomright' });
 
-legend.onAdd = function (map) {
+jobGrowthLegend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend');
-    var grades = [40000, 50000, 60000, 70000, 80000, 90000, 100000];
+    var grades = [-0.01, -0.0025, 0, 0.005, 0.01];
     var labels = [];
     let from, to;
 
@@ -98,8 +97,8 @@ legend.onAdd = function (map) {
         to = grades[i + 1];
 
         labels.push(
-            '<i style="background:' + getColor(from + 1) + '"></i> ' +
-            from + (to ? '&ndash;' + to : '+')
+            '<i style="background:' + getColor(from + 0.001) + '"></i> ' +
+            (from * 100).toFixed(1) + '%' + (to ? '&ndash;' + (to * 100).toFixed(1) + '%' : '+')
         );
     }
 
@@ -107,5 +106,4 @@ legend.onAdd = function (map) {
     return div;
 };
 
-
-legend.addTo(map);
+jobGrowthLegend.addTo(map);
