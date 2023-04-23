@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
+
     <title>Property Selector</title>
-    <!-- Include Leaflet CSS and JS files -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+
+        <!-- Leaflet Base Information -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
         crossorigin=""/>
+            
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin="">
+        </script>
+        
+        <!-- Custom HTML formatiing information -->
+        <link rel="stylesheet" type="text/css" href="formatting.css">
 
-    <script src="map.js"></script>
+  </head>
 
-    <script type="text/javascript" src="gdpPerCapita.js"></script>
-/////////
+  <body>
+    <!-- This code created interctive lists to select which map to display -->
+    <h1>Property Selector</h1>
+    <label for="property1">Select Property 1:</label>
+    <select id="property1">
+      <option value="publicSchoolScore">Public School Score</option>
+      <option value="jobgrowthRate">Job Growth Rate</option>
+      <option value="medianRent">Median Rent</option>
+      <option value="medianhousingValue">Median Housing Value</option>
+      <option value="gdpPerCapita">GDP Per Capita</option>
+      <option value="costlivingIndex">Cost of Living Index</option>
+      <option value="populationDensity">Population Density</option>
+    </select>
+    <br /><br />
+    <label for="property2">Select Property 2:</label>
+    <select id="property2">
+      <option value="publicSchoolScore">Public School Score</option>
+      <option value="jobgrowthRate">Job Growth Rate</option>
+      <option value="medianRent">Median Rent</option>
+      <option value="medianhousingValue">Median Housing Value</option>
+      <option value="gdpPerCapita">GDP Per Capita</option>
+      <option value="costlivingIndex">Cost of Living Index</option>
+      <option value="populationDensity">Population Density</option>
+    </select>
+    <br /><br />
+    <label for="property3">Select Property 3:</label>
+    <select id="property3">
+      <option value="publicSchoolScore">Public School Score</option>
+      <option value="jobgrowthRate">Job Growth Rate</option>
+      <option value="medianRent">Median Rent</option>
+      <option value="medianhousingValue">Median Housing Value</option>
+      <option value="gdpPerCapita">GDP Per Capita</option>
+      <option value="costlivingIndex">Cost of Living Index</option>
+      <option value="populationDensity">Population Density</option>
+    </select>
+
+    <!-- This code creates the boxes that host the maps -->
 
     <div class="map-wrapper">
       <div id="map1"></div>
@@ -56,45 +103,3 @@
         maxZoom: 18
       }).addTo(map3);
     </script>
-   
-   
-//////////
-
-
-
-  </head>
-  <body>
-    <h1>Property Selector</h1>
-    <label for="property1">Select Property 1:</label>
-    <select id="property1">
-      <option value="publicSchoolScore">Public School Score</option>
-      <option value="jobgrowthRate">Job Growth Rate</option>
-      <option value="medianRent">Median Rent</option>
-      <option value="medianhousingValue">Median Housing Value</option>
-      <option value="gdpPerCapita">GDP Per Capita</option>
-      <option value="costlivingIndex">Cost of Living Index</option>
-      <option value="populationDensity">Population Density</option>
-    </select>
-    <br /><br />
-    <label for="property2">Select Property 2:</label>
-    <select id="property2">
-      <option value="publicSchoolScore">Public School Score</option>
-      <option value="jobgrowthRate">Job Growth Rate</option>
-      <option value="medianRent">Median Rent</option>
-      <option value="medianhousingValue">Median Housing Value</option>
-      <option value="gdpPerCapita">GDP Per Capita</option>
-      <option value="costlivingIndex">Cost of Living Index</option>
-      <option value="populationDensity">Population Density</option>
-    </select>
-    <br /><br />
-    <label for="property3">Select Property 3:</label>
-    <select id="property3">
-      <option value="publicSchoolScore">Public School Score</option>
-      <option value="jobgrowthRate">Job Growth Rate</option>
-      <option value="medianRent">Median Rent</option>
-      <option value="medianhousingValue">Median Housing Value</option>
-      <option value="gdpPerCapita">GDP Per Capita</option>
-      <option value="costlivingIndex">Cost of Living Index</option>
-      <option value="populationDensity">Population Density</option>
-    </select>
-    <br /><br />
