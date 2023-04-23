@@ -60,12 +60,6 @@
 
     <!-- This code creates the boxes that host the maps -->
 
-    <div class="map-wrapper">
-      <div id="map1"></div>
-      <div id="map2"></div>
-      <div id="map3"></div>
-    </div>
-   
     <style>
       .map-wrapper {
         display: flex;
@@ -81,7 +75,15 @@
         border: 1px solid #ccc;
       }
     </style>
+
+    <div class="map-wrapper">
+      <div id="map1"></div>
+      <div id="map2"></div>
+      <div id="map3"></div>
+    </div>
    
+    <!-- This code cretes the maps within the continers -->
+
     <script>
       var map1 = L.map('map1').setView([51.505, -0.09], 13);
       var map2 = L.map('map2').setView([51.505, -0.09], 13);
