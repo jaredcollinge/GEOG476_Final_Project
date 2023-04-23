@@ -18,45 +18,72 @@
         </script>
         
         <!-- Custom HTML formatiing information -->
+        <!-- HUNTER DO THIS -->
         <link rel="stylesheet" type="text/css" href="formatting.css">
 
   </head>
 
   <body>
-    <!-- This code created interctive lists to select which map to display -->
-    <h1>Property Selector</h1>
-    <label for="property1">Select Property 1:</label>
-    <select id="property1">
-      <option value="publicSchoolScore">Public School Score</option>
-      <option value="jobgrowthRate">Job Growth Rate</option>
-      <option value="medianRent">Median Rent</option>
-      <option value="medianhousingValue">Median Housing Value</option>
-      <option value="gdpPerCapita">GDP Per Capita</option>
-      <option value="costlivingIndex">Cost of Living Index</option>
-      <option value="populationDensity">Population Density</option>
-    </select>
-    <br /><br />
-    <label for="property2">Select Property 2:</label>
-    <select id="property2">
-      <option value="publicSchoolScore">Public School Score</option>
-      <option value="jobgrowthRate">Job Growth Rate</option>
-      <option value="medianRent">Median Rent</option>
-      <option value="medianhousingValue">Median Housing Value</option>
-      <option value="gdpPerCapita">GDP Per Capita</option>
-      <option value="costlivingIndex">Cost of Living Index</option>
-      <option value="populationDensity">Population Density</option>
-    </select>
-    <br /><br />
-    <label for="property3">Select Property 3:</label>
-    <select id="property3">
-      <option value="publicSchoolScore">Public School Score</option>
-      <option value="jobgrowthRate">Job Growth Rate</option>
-      <option value="medianRent">Median Rent</option>
-      <option value="medianhousingValue">Median Housing Value</option>
-      <option value="gdpPerCapita">GDP Per Capita</option>
-      <option value="costlivingIndex">Cost of Living Index</option>
-      <option value="populationDensity">Population Density</option>
-    </select>
+    <body>
+      <!-- This code created interctive lists to select which map to display -->
+      <h1>Property Selector</h1>
+      <label for="property1">Select Property 1:</label>
+      <select id="property1">
+        <option value="publicSchoolScore">Public School Score</option>
+        <option value="jobgrowthRate">Job Growth Rate</option>
+        <option value="medianRent">Median Rent</option>
+        <option value="medianhousingValue">Median Housing Value</option>
+        <option value="gdpPerCapita">GDP Per Capita</option>
+        <option value="costlivingIndex">Cost of Living Index</option>
+        <option value="populationDensity">Population Density</option>
+      </select>
+      <br /><br />
+      <label for="property2">Select Property 2:</label>
+      <select id="property2">
+        <option value="publicSchoolScore">Public School Score</option>
+        <option value="jobgrowthRate">Job Growth Rate</option>
+        <option value="medianRent">Median Rent</option>
+        <option value="medianhousingValue">Median Housing Value</option>
+        <option value="gdpPerCapita">GDP Per Capita</option>
+        <option value="costlivingIndex">Cost of Living Index</option>
+        <option value="populationDensity">Population Density</option>
+      </select>
+      <br /><br />
+      <label for="property3">Select Property 3:</label>
+      <select id="property3">
+        <option value="publicSchoolScore">Public School Score</option>
+        <option value="jobgrowthRate">Job Growth Rate</option>
+        <option value="medianRent">Median Rent</option>
+        <option value="medianhousingValue">Median Housing Value</option>
+        <option value="gdpPerCapita">GDP Per Capita</option>
+        <option value="costlivingIndex">Cost of Living Index</option>
+        <option value="populationDensity">Population Density</option>
+      </select>
+    
+      <script>
+        const property1Select = document.getElementById('property1');
+        const property2Select = document.getElementById('property2');
+        const property3Select = document.getElementById('property3');
+    
+        let selectedProperty1 = property1Select.value;
+        let selectedProperty2 = property2Select.value;
+        let selectedProperty3 = property3Select.value;
+    
+        property1Select.addEventListener('change', function() {
+          selectedProperty1 = property1Select.value;
+          console.log(`Selected Property 1: ${selectedProperty1}`);
+        });
+    
+        property2Select.addEventListener('change', function() {
+          selectedProperty2 = property2Select.value;
+          console.log(`Selected Property 2: ${selectedProperty2}`);
+        });
+    
+        property3Select.addEventListener('change', function() {
+          selectedProperty3 = property3Select.value;
+          console.log(`Selected Property 3: ${selectedProperty3}`);
+        });
+      </script>  
 
     <!-- This code creates the boxes that host the maps -->
 
