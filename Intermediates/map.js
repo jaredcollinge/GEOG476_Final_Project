@@ -1,18 +1,22 @@
 const map = L.map('map').setView([37.8, -96], 4);
 
+
 const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+
 // control that shows state info on hover
 const info = L.control();
+
 
 info.onAdd = function (map) {
   this._div = L.DomUtil.create('div', 'info');
   this.update();
   return this._div;
 };
+
 
 info.update = function (props) {
   const contents = props
@@ -21,7 +25,9 @@ info.update = function (props) {
   this._div.innerHTML = `<h4>US Public School Score</h4>${contents}`;
 };
 
+
 info.addTo(map);
+
 
 // get color depending on public school score value
 function getColor(d) {
@@ -34,7 +40,8 @@ function getColor(d) {
            d > 20 ? '#ccebc5' :
                     '#f7fcf0';
   }
-  
+ 
+
 
   function style(feature) {
     return {
@@ -47,8 +54,10 @@ function getColor(d) {
     };
   }
 
+
 function highlightFeature(e) {
   const layer = e.target;
+
 
   layer.setStyle({
     weight: 5,
@@ -57,10 +66,13 @@ function highlightFeature(e) {
     fillOpacity: 0.7,
   });
 
+
   layer.bringToFront();
+
 
   info.update(layer.feature.properties);
 }
+
 
 /* global statesData */
 const geojson = L.geoJson(statesData, {
@@ -68,14 +80,17 @@ const geojson = L.geoJson(statesData, {
   onEachFeature,
 }).addTo(map);
 
+
 function resetHighlight(e) {
   geojson.resetStyle(e.target);
   info.update();
 }
 
+
 function zoomToFeature(e) {
   map.fitBounds(e.target.getBounds());
 }
+
 
 function onEachFeature(feature, layer) {
   layer.on({
@@ -85,9 +100,12 @@ function onEachFeature(feature, layer) {
   });
 }
 
+
 map.attributionControl.addAttribution('Public school score data &copy; <a href="https://www.greatschools.org/">GreatSchools.org</a>');
 
+
 const legend = L.control({ position: 'bottomright' });
+
 
 legend.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'info legend');
@@ -95,9 +113,11 @@ legend.onAdd = function (map) {
     const labels = [];
     let from, to;
 
+
     for (let i = 0; i < grades.length; i++) {
         from = grades[i];
         to = grades[i + 1];
+
 
         labels.push(
             '<i style="background:' + getColor(from + 1) + '"></i> ' +
@@ -105,9 +125,15 @@ legend.onAdd = function (map) {
         );
     }
 
+
     div.innerHTML = labels.join('<br>');
     return div;
 };
 
 
+
+
 legend.addTo(map);
+
+
+

@@ -8,12 +8,59 @@
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
         crossorigin=""/>
 
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-        crossorigin="">
-        </script>
+    <script src="map.js"></script>
 
     <script type="text/javascript" src="gdpPerCapita.js"></script>
+/////////
+
+    <div class="map-wrapper">
+      <div id="map1"></div>
+      <div id="map2"></div>
+      <div id="map3"></div>
+    </div>
+   
+    <style>
+      .map-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+     
+      #map1,
+      #map2,
+      #map3 {
+        width: 48%;
+        height: 300px;
+        border: 1px solid #ccc;
+      }
+    </style>
+   
+    <script>
+      var map1 = L.map('map1').setView([51.505, -0.09], 13);
+      var map2 = L.map('map2').setView([51.505, -0.09], 13);
+      var map3 = L.map('map3').setView([51.505, -0.09], 13);
+     
+     
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map1);
+   
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map2);
+   
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map3);
+    </script>
+   
+   
+//////////
+
+
 
   </head>
   <body>
