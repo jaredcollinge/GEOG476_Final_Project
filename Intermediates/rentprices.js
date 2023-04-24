@@ -16,14 +16,14 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
   const contents = props
-    ? `<b>${props.Name}</b><br />Housing Value: $${props.medianRent}`
+    ? `<b>${props.Name}</b><br />Rent Prices: $${props.medianRent}`
     : 'Hover over a state';
-  this._div.innerHTML = `<h4>US Housing Value</h4>${contents}`;
+  this._div.innerHTML = `<h4>US Rent Prices</h4>${contents}`;
 };
 
 info.addTo(map);
 
-// get color depending on housing value
+// get color depending on rent prices
 function getColor(d) {
     return d > 1400 ? '#084081' :
            d > 1200 ? '#0868ac' :
